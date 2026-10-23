@@ -1,0 +1,24 @@
+{
+  "name": "claude-explainer",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render ClaudeExplainer out/claude-explainer.mp4",
+    "still": "remotion still ClaudeExplainer"
+  },
+  "dependencies": {
+    "@fontsource/archivo-black": "5.3.0",
+    "@fontsource/instrument-serif": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/inter": "5.3.0",
+    "@remotion/cli": "4.0.538",
+    "@remotion/motion-blur": "4.0.538",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.538"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}
