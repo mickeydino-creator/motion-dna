@@ -1,6 +1,6 @@
 ---
 name: motion-dna
-description: Motion DNA is the user's permanent motion graphics house style ("Signal Reel"). Apply it to any new animation, video, reel, promo, title sequence, explainer, product or UI animation, or motion design task. The style uses hard-snapping kinetic typography, a signal-orange, ink-navy, paper and electric-blue palette, technical HUD framing, one scene per musical bar, and a recurring "dot" motif that drives transitions. Use it whenever the user asks for motion graphics, an animated video, a Remotion, After Effects or three.js composition, or anything "in my style", even without naming the skill. Also use it when the user says a generated video doesn't look right, doesn't match the style or reference, or needs more style accuracy (including in Hebrew, for example "הסרטון לא יצא טוב", "זה לא דומה לרפרנס" or "תדייק את הסטייל"). That triggers the style-correction workflow. Always run the intake questions before a new production.
+description: Motion DNA is the user's permanent motion graphics house style ("Signal Reel"): hard-snapping kinetic typography, beat-locked scenes, shape-driven transitions, a technical HUD and a recurring dot motif, combined with each project's researched brand identity. Use it for any new animation, video, reel, promo, explainer, title sequence, product or UI animation, or a Remotion, After Effects or three.js composition, even when the skill isn't named. Also use it when the user says a generated video looks wrong, doesn't match the style or reference, or needs more accuracy (for example "הסרטון לא יצא טוב", "זה לא דומה לרפרנס", "תדייק את הסטייל"), which triggers the style-correction workflow. Before every new production, ask the intake questions and research the featured brand or subject online (colors, logo, fonts, product UI, tone).
 ---
 
 # Motion DNA
@@ -10,6 +10,7 @@ Motion DNA is a permanent motion graphics house style (internal style name: "Sig
 ## Files and the two kinds of video
 
 - `STYLE_GUIDE.md` is **the default production specification.** It holds the rules, values, timing, typography, color, transitions, effects, recipes, examples, the QC checklist (§13), and the correction log (§15). **Read it in full before making creative decisions.**
+- `RESEARCH.md` is the **mandatory brand and subject research protocol** for every new project: what to collect, source priority, [V]/[S] labeling, and how the identity merges with Motion DNA. `templates/PROJECT_BRIEF.md` is the brief every project fills in before production.
 - `ANALYSIS.md` holds the evidence: a scene-by-scene breakdown of the master reference, with timestamps, and observed versus inferred facts.
 - `references/keyframes/*.jpg` are contact sheets from the analysis. They give quick visual grounding without opening a video.
 - `references/master-reference.<ext>` is the **master style reference**, the original video the user supplied to define the style. It is protected by `scripts/master_ref.sh` (read-only, checksummed). See `references/README.md`.
@@ -20,16 +21,21 @@ There are **two kinds of video. Never confuse them:**
 
 Before anything touches `references/`, identify which kind a video is. If an attached video's sha256 matches a render of the current project, it is a project video. If you can't tell whether an upload is meant to be the master, ask.
 
+**Two design systems, never confused:**
+- **Motion DNA (permanent):** how things move and are structured. Timing, easing, transitions, composition, HUD, type *roles*, the dot motif, the field-rotation and single-signal rules. It comes from STYLE_GUIDE.
+- **Project identity (per project):** what it looks like and says. The colors that fill the roles, fonts, logo, product UI, imagery, copy, and claims. It comes from online research and the user's kit, recorded in `PROJECT_BRIEF.md`.
+The reference's orange, navy, paper, and blue palette and its default fonts are a **fallback** for projects with no external identity. They are never imposed on a brand.
+
 **Priority rule:** this design system overrides generic motion graphics conventions and your own defaults. The user's explicit instructions and their design kit override the guide (say so when that happens). Every other core rule stays intact.
 
 ## Style in one paragraph
 
-The style is a fast, confident, engineered-feeling reel. Each scene lasts one musical bar (about 1.6 s at about 150 BPM), and every hard change lands on a beat. Elements **snap in** with an exponential ease-out (6-10 frames at 30 fps) and heavy directional motion blur, and sometimes with a chromatic RGB split. There is no bounce and no lazy fades. Then they **hold with living micro-motion**. Scenes never simply cut or crossfade. **A shape inside the current scene becomes the transition into the next one**: a line flares into a flash, a period grows into an ink mask, rings explode, a card collapses into a glowing square, a dot opens into a portal. Type mixes three voices: a **heavy uppercase grotesk** for impact words, a **lowercase high-contrast serif italic** for the human accent, and a **small, widely tracked uppercase mono** for technical HUD labels. The palette rotates between four base fields (**ink navy, signal orange, paper off-white, electric blue**), and adjacent scenes always contrast. Orange is the signal color. A persistent **HUD frame** (corner brackets, project label, scene counter, category tag, running timecode) makes the piece feel like a precise instrument. A single **dot** threads through the whole piece.
+The style is a fast, confident, engineered-feeling reel. Each scene lasts one musical bar (about 1.6 s at about 150 BPM), and every hard change lands on a beat. Elements **snap in** with an exponential ease-out (6-10 frames at 30 fps) and heavy directional motion blur, and sometimes with a chromatic RGB split. There is no bounce and no lazy fades. Then they **hold with living micro-motion**. Scenes never simply cut or crossfade. **A shape inside the current scene becomes the transition into the next one**: a line flares into a flash, a period grows into an ink mask, rings explode, a card collapses into a glowing square, a dot opens into a portal. Type mixes three voices: a **heavy uppercase grotesk** for impact words, a **lowercase high-contrast serif italic** for the human accent, and a **small, widely tracked uppercase mono** for technical HUD labels. The palette rotates between four base-field *roles* (dark, saturated brand field, light, cool), and adjacent scenes always contrast. One accent is the signal color. The default hues are ink navy, signal orange, paper off-white, and electric blue, and they are replaced by the project's researched identity. A persistent **HUD frame** (corner brackets, project label, scene counter, category tag, running timecode) makes the piece feel like a precise instrument. A single **dot** threads through the whole piece.
 
 ## Mode router (decide first, every time)
 
-1. **Production (the default).** The user wants a new video. Use the Production workflow below. **Don't open the master reference, and don't ask the user to upload it.** The style guide is enough.
-2. **Revision.** The user wants a normal change: text, footage, a scene, duration, aspect ratio, music, colors from a kit, or a "make it faster" request. Apply the change to the project with the style guide. **No master reanalysis.**
+1. **Production (the default).** The user wants a new video. Use the Production workflow below, which **always includes online research of the featured brand or subject before design**. **Don't open the master reference, and don't ask the user to upload it.** Brand research never triggers master reanalysis.
+2. **Revision.** The user wants a normal change: text, footage, a scene, duration, aspect ratio, music, colors from a kit, or a "make it faster" request. Apply the change to the project with the style guide and the existing `PROJECT_BRIEF.md`. **No master reanalysis**, and no new research unless the revision introduces a new subject or the brief is missing something.
 3. **Style correction.** The user says the result is wrong, inaccurate, doesn't look right, or doesn't match the style or reference, or asks for more style accuracy. For example: "The video doesn't look right", "This isn't accurate enough", "The style doesn't match", "הסרטון לא יצא טוב", "זה לא דומה לרפרנס", "תדייק את הסטייל". Use the Correction workflow below. If the complaint gives no reason, diagnose it yourself first (steps 1-3) instead of asking follow-up questions.
 4. **Reference mode.** The user explicitly asks to analyze, set up, or update the master reference. Use Master setup / update below.
 
@@ -37,41 +43,44 @@ If a request mixes modes (for example "change the text, and it also doesn't look
 
 ## Production workflow
 
-### 1. Intake: always ask first, on every new production
-Ask these questions in one compact message, in the user's language, with defaults in parentheses. Skip only the questions the user has already answered explicitly in the current request. Never ask for the master reference.
-1. **Aspect ratio and resolution:** 16:9, 9:16, 1:1, 4:5, or other? (default 16:9 at 1920×1080)
-2. **References or design kit for this project:** a brand book, logo, fonts, colors, or project references? (A kit fills only the project slots in STYLE_GUIDE §3.4 and §4.5. Project references are type-B material, not a new master.)
-3. **Goal and message:** what is the piece for, and which words must appear?
+Follow this order on every new project, including a brand that appeared in an earlier project. **Final production must not start before steps 1-4 are complete.**
+
+### 1. Understand the request and identify the subject
+Name the brand, company, product, person, event, or topic the video features (there may be several), the objective, and the audience. Then ask the intake questions in one compact message, in the user's language, with defaults in parentheses. Skip the questions the user has already answered explicitly. **Don't ask for anything that can be found online** (brand colors, logo, fonts, product facts), and never ask for the master reference.
+1. **Aspect ratio and resolution:** (default 16:9 at 1920×1080)
+2. **References or design kit:** brand guidelines, logo files, fonts, or project references? (Optional. Online research of the brand happens anyway. A supplied kit is authoritative, and only its gaps get researched. Project references are type-B material, not a new master.)
+3. **Goal and message:** what is the piece for, and which words or claims must appear?
 4. **Duration and FPS:** (default 12-20 s at 30 fps)
 5. **Audio:** a track or BPM? (default 150 BPM, 1 scene = 1 bar)
-6. **Assets:** screenshots, UI, footage, data?
-7. **Tool and output:** (default Remotion + React, plus three.js if 3D is needed; render an MP4 if the environment allows it)
+6. **Private assets:** unpublished screenshots, footage, or data? (Public product imagery gets researched.)
+7. **Tool and output:** (default Remotion + React, plus three.js if 3D is needed; render an MP4 if possible)
 8. **Presentation wrapper:** a device mockup with a mirrored reflection and caption, or full-frame? (default full-frame)
 9. **On-screen language:** (Hebrew or Arabic means RTL; see STYLE_GUIDE §4.6)
+If the user says "just go", use the defaults and list them in one line. Research (step 2) can run while you wait for answers.
 
-Wait for the answers. If the user says "just go" or "use defaults", proceed with the defaults and list them in one line.
+### 2. Research the brand and subject online (mandatory)
+Follow `RESEARCH.md`. Use web search and fetch tools on official sources first: brand guidelines, press kit, the official site and its CSS, product pages, and docs. Collect only what this video needs: the official palette (with sources), logo files and variants, fonts, current visual identity, real product UI, brand graphic elements, tone, positioning, and audience. For people, events, and topics, collect verified facts and appropriate visuals. Tag everything [V] (verified, with URL) or [S] (suggested). If browsing is unavailable, say so and label the affected decisions [S].
 
-### 2. Load the system
-Read `STYLE_GUIDE.md` fully, including §15, the correction log. Its entries are binding. Map any kit onto the brand-swappable slots and note which slots changed.
+### 3. Gather assets
+Download official assets (logo SVG or PNG, product imagery) into `<project>/assets/brand/`, and record the source of each. Never redraw a logo or invent UI or claims. Use labelled placeholders when no official file exists.
 
-### 3. CORE vs PROJECT brief
-- **CORE:** motion grammar, easing and timing, beat-locked scenes, contained-shape transitions, the three type voices, the HUD, the dot motif, field rotation, and orange as the signal.
-- **PROJECT:** copy, brand, logo, data, scene subjects, kit fonts and colors, number of scenes, aspect ratio, wrapper, and footage.
+### 4. Establish the visual direction: PROJECT_BRIEF.md
+Fill `templates/PROJECT_BRIEF.md` into `<project>/PROJECT_BRIEF.md`: the subject and objective, the verified identity, the palette and its sources, the logo, typography and assets, the visual direction, and **the merge plan** (which brand values fill which Motion DNA slots, per STYLE_GUIDE §3.4 and §4.5, plus any adaptations where the brand conflicts with a CORE rule). Then:
+- **CORE (Motion DNA):** motion grammar, easing and timing, beat-locked scenes, contained-shape transitions, type roles, the HUD, the dot motif, the field-rotation and single-signal rules.
+- **PROJECT (identity):** palette hues, fonts, logo, UI, imagery, copy, data, scene subjects, aspect ratio, and wrapper.
+The brief is the project's research cache. Reuse it for later steps and revisions, and re-research only what is missing or outdated.
 
-### 4. Beat sheet
-For each scene, list the bar, start and end frame, field, hero element, hold micro-motion, and **exit device**. Follow the structure in STYLE_GUIDE §6. Check the field rotation and the dot motif (it must appear at the boot, mid-piece, and on the end card).
+### 5. Apply Motion DNA
+Read `STYLE_GUIDE.md` fully, including §15, the binding correction log. Build the beat sheet: for each scene, list the bar, start and end frame, field role and its **brand hue**, hero element, hold micro-motion, and **exit device**. Follow the structure in STYLE_GUIDE §6. Check the field rotation and the dot motif. Lay out each aspect ratio per §5 and §9.
 
-### 5. Layout per aspect ratio
-Follow STYLE_GUIDE §5 and §9.
+### 6. Produce
+Implement per STYLE_GUIDE §10. **The tokens file takes its colors and fonts from the brief**, with a source comment on each brand value. Use seeded randomness, and motion blur on fast moves is mandatory. Keep all project files and renders in the project folder, never in the skill's `references/`.
 
-### 6. Implement
-Use STYLE_GUIDE §10. Put all values in one tokens file, and use seeded, deterministic randomness. Motion blur on fast moves is mandatory. Keep all project files and renders in the project folder, never in the skill's `references/`.
-
-### 7. Self-inspect and correct
-Render stills at every scene midpoint and every transition midpoint (`bash scripts/master_ref.sh inspect <render> <dir>` gives a contact sheet of a project render). Score them against STYLE_GUIDE §13 and fix every failure before delivering. This step uses the guide, not the master reference.
+### 7. Verify both systems
+Render stills at every scene midpoint and transition midpoint (`bash scripts/master_ref.sh inspect <render> <dir>` gives a contact sheet). Check them against STYLE_GUIDE §13 (Motion DNA, including the identity section) and RESEARCH.md §9 (identity fidelity: colors, logo, UI, and claims trace to the brief). Fix every failure before delivering. This step doesn't open the master reference.
 
 ### 8. Deliver
-Give the output, the beat sheet, the CORE versus PROJECT summary, the kit slots that were applied, and any deliberate deviations with their reasons.
+Give the output, the PROJECT_BRIEF summary with its key sources, the beat sheet, the CORE versus PROJECT split, and any deliberate deviations with their reasons.
 
 ## Correction workflow (Style-correction mode only)
 
@@ -90,11 +99,12 @@ Give the output, the beat sheet, the CORE versus PROJECT summary, the kit slots 
 ## Quick QC (the full list is in STYLE_GUIDE §13)
 - [ ] The mode was chosen correctly. In production and revisions, the master reference was not opened.
 - [ ] Intake was answered (or defaults confirmed), and the §15 corrections were applied.
+- [ ] Online research was done for this project. `PROJECT_BRIEF.md` exists, and its colors, fonts, logo, and UI are actually used in the tokens and render (default palette only if there is no external identity).
 - [ ] Each scene lasts about one bar, and hard changes land on beats.
 - [ ] Snaps are expo-out at 6-10 f, with motion blur. No bounce, no slow fades.
 - [ ] Every transition is made from a shape in the outgoing scene. No crossfades.
 - [ ] Three type voices, each in its role.
-- [ ] The fields rotate, and there is one orange signal per scene.
+- [ ] The fields rotate, and there is one signal (in the brand's signal hue) per scene.
 - [ ] The HUD is on showcase scenes only, and the dot motif opens, recurs, and closes the piece.
 - [ ] Holds are alive, and nothing from the AVOID list (§12) is present.
 - [ ] Project videos stayed in the project folder, and `references/` is unchanged.

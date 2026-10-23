@@ -31,7 +31,7 @@ These seven signatures define the style. If one of them is missing, the piece st
 3. **Contained-shape transitions.** The next scene is always born from a shape that already exists in the current one: a line, a period, a ring, a card, a dot. There are no crossfades and no unmotivated wipes. [O]
 4. **The dot motif.** A single circle or dot recurs as the connective tissue. It opens the piece (a falling orange spark that becomes a dot), it is the period in the title, a glass sphere on the 3D wave, the center blob in the liquid scene, the portal, and finally the glowing orange dot that "writes" the wordmark at the end. [O]
 5. **Three typographic voices.** A heavy uppercase grotesk (impact), a lowercase serif italic (human or poetic accent), and a tiny widely tracked uppercase mono (technical metadata). [O]
-6. **A four-field palette with a single signal.** Base fields rotate between ink navy, signal orange, paper off-white, and electric blue. Orange is reserved for the signal: the thing your eye must find. [O]
+6. **A four-field palette with a single signal.** Base fields rotate between four *roles* (dark, saturated brand field, light, cool or secondary), and one accent is reserved for the signal: the thing your eye must find. In the reference the hues were ink navy, signal orange, paper off-white, and electric blue, with orange as the signal [O]. Those hues are the **default palette**, not a fixed rule (see §2 and §3.4).
 7. **The HUD frame.** A precise "instrument" overlay sits on every showcase scene: corner brackets, a project label with an orange dot, a scene counter, a category tag, and a running timecode. [O]
 
 Tone: engineered, precise, confident, a little playful (the serif italic), and never decorative for its own sake.
@@ -44,7 +44,9 @@ Tone: engineered, precise, confident, a little playful (the serif italic), and n
 
 **OPTIONAL (choose per project):** specific showcase scene types (3D mograph, particles, data, UI, liquid shapes; see §6.3), specific transition devices from the catalog, chromatic aberration intensity, glitch slicing, iridescent 3D materials, the boot "terminal typing" intro, the device-mockup wrapper with floor reflection (§9.5), the exact BPM, the number of scenes, and the HUD text content.
 
-**PROJECT-SPECIFIC (never copy from the reference):** the words "CLAUDE", "motion designer", "every frame, on purpose", the statistics (+312%, 78%), "Render queue", the asterisk logo, the caption "5.5 is ridiculous at motion", and any brand marks. These were the reference's *content*, not its style.
+**PROJECT IDENTITY (comes from research or the user's kit, never from the reference; see RESEARCH.md):** the actual hues filling the field and signal roles, the fonts filling the three type roles (when suitable, §4.5), the logo, product UI, imagery, copy, claims, and tone. The reference's orange, navy, paper, and blue are used **only** when the project has no external identity (abstract work, the user's own unbranded content) or when the user asks for them. They must never be imposed on a brand that has its own identity.
+
+**PROJECT-SPECIFIC CONTENT (never copy from the reference):** the words "CLAUDE", "motion designer", "every frame, on purpose", the statistics (+312%, 78%), "Render queue", the asterisk logo, the caption "5.5 is ridiculous at motion", and any brand marks. These were the reference's *content*, not its style.
 
 ---
 
@@ -73,18 +75,18 @@ The values are recommended working values. The reference samples were camera-shi
 - **Hue-sweep:** the full field hue rotates (blue to magenta `#E04AF0` to orange) over 2-4 frames as a transition. [O]
 - **Light flash:** white-hot `#FFF6E8` with orange edges `#FF7A2A`, as a light-leak look. [O]
 
-### 3.4 Brand-swappable slots
-When the user supplies a design kit, map it as follows:
+### 3.4 Brand-swappable slots (filled from the PROJECT_BRIEF)
+§3.1-§3.3 describe the **default palette** (the reference's own hues). For any project with a researched or supplied identity, fill the roles from the verified brand palette in `PROJECT_BRIEF.md` (RESEARCH.md §7) and record the source of each value in the tokens file. The roles are CORE and the hues are PROJECT. Mapping:
 - `signal` is the brand's most saturated accent. It must keep ≥ 3:1 contrast against every base field it touches. If it fails on one field, adjust that field rather than the signal.
 - `field.warm`: by default this is the same hue as `signal`, used as a field.
 - `field.dark`, `field.light`, `field.cool`: brand neutrals and a secondary color.
 - `ink`, `white`: the brand's text colors.
-Keep the **number** of fields (4) and the **roles**, even when the hues change.
+Keep the **number** of fields (4) and the **roles**, even when the hues change. If the brand has fewer colors, derive the missing roles from the brand's own colors (a deep tint of the primary for `field.dark`, the brand's off-white or a 3-5% tint for `field.light`, a secondary or analogous hue for `field.cool`). Mark derived values [S] in the brief. Brand gradients or textures that are part of the identity may replace the soft radial field gradient. Keep them soft enough for type contrast.
 
 ### 3.5 Color rules (CORE)
 1. **Field rotation:** adjacent scenes must differ in base field, and should alternate in value (dark ↔ light or saturated). The reference order was navy, orange, black (3D), paper, black, blue, orange, paper (data), black (particles), blue (UI), orange (shape), navy (end). [O]
 2. **One signal:** at any moment, the brightest-saturation accent on screen is the signal color, and there is at most one "signal object" per scene (one dot, one bar, one %, one toggle).
-3. **Orange as a field means ink type:** on an orange field, type is INK (heavy) or WHITE (serif italic), never orange-on-orange.
+3. **The signal hue as a field means ink type:** on the saturated brand field (orange by default), type is INK (heavy) or WHITE (serif italic), never signal-on-signal.
 4. **No pure #000 or #FFF fields.** They are always slightly tinted.
 5. **Gradients are radial and soft** (a lit-from-one-side feel). There are no hard linear rainbow gradients except the iridescent 3D material.
 
@@ -144,7 +146,7 @@ Use a ratio of about 1 : 0.4 : 0.08 (impact : accent : mono), which gives an ext
 - **Decode or scramble** [I]: the mono tagline characters resolve from random glyphs, left to right, at 1-2 frames per character.
 
 ### 4.5 Brand-swappable type slots
-`font.impact`, `font.accent`, `font.mono`, `font.ui`. The kit's display font goes into impact *only if it is heavy* (≥ 700 and ideally ≥ 800). If the kit has no serif italic, choose one from the candidates above rather than dropping the accent voice. The accent voice is CORE.
+`font.impact`, `font.accent`, `font.mono`, `font.ui`. Fill them from the brief (the brand's verified fonts) when they are legally obtainable and fit the role. If not, use the closest open alternative, labelled [S]. The brand's display font goes into impact *only if it is heavy* (≥ 700 and ideally ≥ 800). If the kit has no serif italic, choose one from the candidates above rather than dropping the accent voice. The accent voice is CORE.
 
 ### 4.6 RTL and Hebrew adaptation [U, recommended]
 - The letter-sequential reveal runs **right to left**. Whip-ins enter from the left (moving toward the reading start) or mirror the original direction consistently across the piece.
@@ -379,6 +381,7 @@ Things that are absent from the reference: drop shadows on type, bevels or embos
 - Generic template elements: lower-third bars, light streak stock overlays, lens flares, 3D extruded logos, glossy plastic text.
 - Randomness that changes between renders (unseeded).
 - Copying the reference's content (names, words, stats, logos, caption).
+- Applying the default orange, navy, paper, and blue palette or the default fonts to a brand that has its own identity. Inventing brand colors, redrawing a logo, faking a product UI, or showing unsourced claims (RESEARCH.md).
 
 ---
 
@@ -387,6 +390,12 @@ Things that are absent from the reference: drop shadows on type, bevels or embos
 **Intake**
 - [ ] The aspect ratio, references or design kit, goal, duration and FPS, audio and BPM, assets, tool, wrapper, and language were asked and answered (or the defaults were confirmed).
 - [ ] The CORE vs PROJECT decisions are written down.
+
+**Project identity (RESEARCH.md §9)**
+- [ ] Online research was done for this project, and `PROJECT_BRIEF.md` exists with sources and [V]/[S] tags.
+- [ ] Every brand color, font, and logo in the render traces to the brief. The logo is the official, unmodified file.
+- [ ] The UI and imagery reflect the real product or subject. Claims and numbers are sourced or labelled as sample data.
+- [ ] The default palette and fonts are used only if the brief says "no external identity" or the user asked for them.
 
 **Rhythm**
 - [ ] The BPM is set, and BEAT and BAR are computed in frames.
@@ -412,7 +421,7 @@ Things that are absent from the reference: drop shadows on type, bevels or embos
 
 **Color**
 - [ ] The four base fields rotate, and adjacent scenes differ.
-- [ ] There is one signal object per scene, in the signal color.
+- [ ] There is one signal object per scene, in the signal color (the brand's signal role, per the brief).
 - [ ] No pure #000 or #FFF fields. The gradients are soft and radial.
 - [ ] Contrast is ≥ 4.5:1 for small mono text and ≥ 3:1 for large type.
 
@@ -431,9 +440,11 @@ Things that are absent from the reference: drop shadows on type, bevels or embos
 ### 14.1 Correct applications
 - **SaaS product launch, 16:9, 15 s, 150 BPM.** The boot shows a navy field, a dot grid, an orange dot, and `acme / launch - 2027` typing. The line flashes to orange: "ACME." in the impact voice with "now with autopilot" in the accent voice. The period grows into an ink mask, revealing a black 3D cube wave forming the product icon. The next word sequence is "SHIP / FASTER / THAN / ever." with one word per beat, each with its own field and treatment. A diagonal slab wipe leads into a paper dashboard (+48% in the impact voice, an orange %, and a bar chart whose last bar is orange). A column dissolve leads into a blue UI card demo where the cursor toggles an orange switch. The card collapses into a glowing square, which becomes a dot. The portal opens to navy: the dot writes "Acme", the accent reads "autopilot", and the mono tagline reads `BUILT FOR TEAMS THAT SHIP.` Why it is right: the beats are locked, each transition is motivated by an object, the three voices are used, the fields rotate, and the dot threads through the piece.
 - **9:16 social teaser in Hebrew.** The same grammar is used with right-to-left reveals, Heebo Black impact words stacked one per line at 85% of the width, a Frank Ruhl Libre accent line, a mirrored HUD, and bottom labels lifted above the platform UI zone.
+- **A real brand (researched).** For example, a promo for a startup whose official site defines a violet primary and a near-black UI. The research brief records the site CSS variables and the press-kit logo. Violet fills the signal and saturated-field roles, the brand's near-black is the dark field, and its off-white is the light field. The brand's sans fills the impact role (heavy weight). The official SVG logo is written by the dot on the end card, and the product UI scene mirrors real screenshots. The motion, beats, transitions, HUD, and type roles are pure Motion DNA.
 - **The brand kit has a green signal color.** Green replaces orange in every signal role, and the warm field becomes the brand green. The navy, paper, and blue fields are re-tinted to brand neutrals. The motion, type roles, HUD, and transitions are unchanged.
 
 ### 14.2 Incorrect applications (and the fix)
+- *A video for a well-known brand built in the default orange and navy, with a hand-typed imitation of its logo.* **Fix:** research the brand first (RESEARCH.md), fill the roles from its verified palette, and use the official logo file.
 - *A "premium" slow reveal:* the title fades in over 1.5 s with an ease-in-out. **Fix:** an 8 f expo-out letter-sequential masked reveal with motion blur, then a hold.
 - *A centered sentence in bold caps:* "WE MAKE TEAMS FASTER" on one line. **Fix:** split it into one impact word per beat and resolve the last word in the serif italic accent.
 - *Scenes joined by crossfades or generic slide pushes.* **Fix:** plant a dot, line, or ring in each outgoing scene and use it as the device.
