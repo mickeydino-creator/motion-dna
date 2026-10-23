@@ -1,6 +1,6 @@
-# Claude explainer: motion-style example
+# Claude explainer: Motion DNA example
 
-A 15 s, 1920×1080, 30 fps explainer built with the `motion-style` skill ("Signal Reel").
+A 15 s, 1920×1080, 30 fps explainer built with the Motion DNA skill (`/motion-dna`).
 Output: `out/claude-explainer.mp4`.
 
 Render: `npm install`, then `npx remotion render ClaudeExplainer out/claude-explainer.mp4` (add `--browser-executable=<chrome>` if Remotion can't download one).

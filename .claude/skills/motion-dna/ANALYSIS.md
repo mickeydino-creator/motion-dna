@@ -1,9 +1,10 @@
-# ANALYSIS: evidence behind the "Signal Reel" design system
+# ANALYSIS: evidence behind the Motion DNA ("Signal Reel") design system
 
-This is a one-time analysis of the user's reference video. It is kept so that every rule in `STYLE_GUIDE.md` can be traced back to evidence. The video itself is **not** needed again. Representative keyframes are saved in `reference/`.
+This is the analysis of the user's master style reference video. It is kept so that every rule in `STYLE_GUIDE.md` can be traced back to evidence. Normal production does **not** reopen the video. It is reopened only for targeted reanalysis in the correction workflow (see SKILL.md), using the timestamps below to find the right moments. The master file itself lives in `references/` (see STYLE_GUIDE §0). Representative keyframes are saved in `references/keyframes/`.
 
 ## 0. Method and source facts
 
+- **Analysis source sha256:** `c5c6620a168182ef7428ea1dc13bd9243f23ff337f2136fe976c0864663e5a7e` (original upload name `Video-41968.mp4`). `scripts/master_ref.sh` compares any installed master against this fingerprint.
 - **File:** an H.264 MP4 with 720×1280 (9:16) video at about 29.9 fps (431 frames, about 14.42 s of video), plus 44.1 kHz stereo AAC audio (about 14.53 s).
 - **Extraction:** a full contact sheet every 0.25 s; full-resolution crops of the screen area at about 40 timestamps; dense strips at 15 fps (every second frame) across 13 transition windows; zoomed crops of the HUD text, the data scene, the UI card, the shape scene, and the end card; FFmpeg scene-change detection (threshold 0.25, no hard cuts found); a per-100 ms RMS audio envelope; and 20×20 px color samples (camera-shifted).
 - **Limitations:** the reel is seen *on a laptop screen inside a 9:16 composite*. The colors are affected by the screen and camera (or mockup) rendering, the white balance shifts paper toward cyan or green, the fine type is softened by about 3-4× downscaling and compression, and the perspective distorts proportions. The frame timing resolution is 1 frame at about 30 fps (about 33 ms). The reel content may have been rendered at 60 fps (it says "60 FPS" on screen), but only 30 fps reaches us.
@@ -138,8 +139,8 @@ These are 20×20 px area averages taken through the camera, so they are darker o
 
 ## 6. Reference keyframe files
 
-- `reference/00_full_frame_wrapper.jpg`: the full 9:16 composite at 2.2 s (laptop, caption, mirrored reflection).
-- `reference/01_boot_title.jpg`: 0.3, 0.6, 0.95, 1.45, 1.65, 1.8, 2.2, 2.95, and 3.1 s (boot, line → flash, title reveal, period → ink).
-- `reference/02_3d_kinetic_type.jpg`: 3.3, 3.6, 4.2, 4.95, 5.5, 5.85, 6.05, 6.25, and 6.5 s (3D wave, EVERY / SINGLE / FRAME / hue sweep / on purpose. / slab wipe).
-- `reference/03_data_particles_ui.jpg`: 6.75, 7.5, 8.05, 8.4, 8.9, 9.3, 9.85, 10.7, and 11.05 s (dashboard, column dissolve, flow field, phyllotaxis, burst, UI card).
-- `reference/04_shape_portal_end.jpg`: 11.3, 11.45, 11.8, 12.25, 12.8, 13.0, 13.3, 13.6, and 14.35 s (card collapse, metaballs, superformula, portal, dot-led wordmark, end card).
+- `references/keyframes/00_full_frame_wrapper.jpg`: the full 9:16 composite at 2.2 s (laptop, caption, mirrored reflection).
+- `references/keyframes/01_boot_title.jpg`: 0.3, 0.6, 0.95, 1.45, 1.65, 1.8, 2.2, 2.95, and 3.1 s (boot, line → flash, title reveal, period → ink).
+- `references/keyframes/02_3d_kinetic_type.jpg`: 3.3, 3.6, 4.2, 4.95, 5.5, 5.85, 6.05, 6.25, and 6.5 s (3D wave, EVERY / SINGLE / FRAME / hue sweep / on purpose. / slab wipe).
+- `references/keyframes/03_data_particles_ui.jpg`: 6.75, 7.5, 8.05, 8.4, 8.9, 9.3, 9.85, 10.7, and 11.05 s (dashboard, column dissolve, flow field, phyllotaxis, burst, UI card).
+- `references/keyframes/04_shape_portal_end.jpg`: 11.3, 11.45, 11.8, 12.25, 12.8, 13.0, 13.3, 13.6, and 14.35 s (card collapse, metaballs, superformula, portal, dot-led wordmark, end card).

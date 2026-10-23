@@ -1,4 +1,4 @@
-// Single source of truth for the Signal Reel style (see motion-style STYLE_GUIDE §10).
+// Single source of truth for the Motion DNA style (see motion-dna STYLE_GUIDE §10).
 export const W = 1920;
 export const H = 1080;
 export const FPS = 30;

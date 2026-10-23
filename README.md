@@ -1,22 +1,26 @@
 # motion-dna
 
-A permanent motion graphics style captured as the Claude Skill `motion-style` ("Signal Reel"). It was extracted once from a reference reel. The reference video is not needed for future use.
+**Motion DNA** is a permanent motion graphics house style ("Signal Reel"), packaged as a Claude Skill and invoked with `/motion-dna`.
 
 ```
-.claude/skills/motion-style/
-  SKILL.md          # activation, mandatory intake questions, workflow, quick QC
-  STYLE_GUIDE.md    # full design system: color, type, composition, timing, motion, transitions, effects, recipes, AVOID list, QC checklist, examples
-  ANALYSIS.md       # scene-by-scene evidence with timestamps, observed/inferred/uncertain
-  reference/*.jpg   # keyframe contact sheets from the reference
-dist/motion-style.zip  # the same skill, packaged for upload
+.claude/skills/motion-dna/
+  SKILL.md                    # modes (production / revision / style correction / reference), intake, workflows, QC
+  STYLE_GUIDE.md              # the default production spec (§0 master reference, §13 QC, §15 correction log)
+  ANALYSIS.md                 # evidence from the master reference, with timestamps
+  references/
+    README.md                 # master-reference rules
+    master-reference.<ext>    # the user's original master video (added at setup, read-only, checksummed)
+    keyframes/*.jpg           # contact sheets from the analysis
+  scripts/master_ref.sh       # install / verify / targeted frames / inspect / compare (guards the master)
+examples/claude-explainer/    # an example project (Remotion) - project videos live here, never in references/
+dist/motion-dna.zip           # the same skill, packaged for upload
 ```
 
 ## Install
-
-- **Claude Code, in this repo:** nothing to install. The project skill in `.claude/skills/motion-style/` is discovered automatically.
-- **Claude Code, globally (all projects):** `cp -r .claude/skills/motion-style ~/.claude/skills/`
-- **Claude.ai / Claude Desktop:** Settings → Capabilities → Skills → Upload skill → `dist/motion-style.zip`.
+- **Claude Code, in this repo:** automatic (project skill).
+- **Claude Code, globally:** `cp -r .claude/skills/motion-dna ~/.claude/skills/`
+- **Claude.ai / Claude Desktop:** Settings → Capabilities → Skills → Upload skill → `dist/motion-dna.zip`. The zip includes the master reference once it has been saved.
 
 ## Use
-
-Type `/motion-style`, or just ask for a motion piece, for example "make a 15 s launch video in my motion style". The skill always starts by asking for the aspect ratio, references or design kit, goal, duration and FPS, audio or BPM, assets, tool, wrapper, and language.
+- New video: type `/motion-dna`, or ask for a motion piece. The skill asks the intake questions, then builds from STYLE_GUIDE.
+- Style looks off: say so (for example "זה לא דומה לרפרנס"). The skill inspects the render, re-checks only the relevant parts of the master, fixes the project, and logs validated rules in STYLE_GUIDE §15.

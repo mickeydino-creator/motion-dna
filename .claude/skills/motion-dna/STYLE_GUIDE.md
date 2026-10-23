@@ -1,6 +1,15 @@
-# STYLE GUIDE: "Signal Reel" motion system
+# STYLE GUIDE: Motion DNA ("Signal Reel" motion system)
 
-The permanent design system for the `motion-style` skill. It was extracted from a single reference reel (14.4 s, recorded or composited as a 9:16 social video of a laptop screen playing a 16:9 motion reel). All values below are meant for production use. The evidence behind them is in `ANALYSIS.md`, and the visual keyframes are in `reference/`.
+The permanent design system for the **Motion DNA** skill (`/motion-dna`). **This file is the default production specification.** Every new video is built from it without reopening the master reference video. It was extracted from a single reference reel (14.4 s, recorded or composited as a 9:16 social video of a laptop screen playing a 16:9 motion reel). All values below are meant for production use. The evidence behind them is in `ANALYSIS.md`, and the visual keyframes are in `references/keyframes/`.
+
+## 0. Master reference
+
+- **Location:** `references/master-reference.<original extension>` (for example `master-reference.mp4`), with its checksum in `references/master-reference.sha256`. Check whether it is present with `bash scripts/master_ref.sh status`. If it is not present, the user has not uploaded it to the skill yet, and it must not be described as saved.
+- **Identity:** the analysis below was done on the video with sha256 `c5c6620a168182ef7428ea1dc13bd9243f23ff337f2136fe976c0864663e5a7e` (720×1280, about 14.5 s, H.264 and AAC). When a master is installed, `master_ref.sh` reports whether it is this exact video. If it is a different video, this guide must be rebuilt from the new master (keeping §15).
+- **Purpose:** this video is the ground truth for the style. This guide is the working translation of it.
+- **When to use it:** production and normal revisions use **only this guide**. The master is reopened only (a) when the user reports that a generated video doesn't look right, doesn't match the style, or needs more accuracy, or (b) when the user explicitly asks to analyze or update the reference. Reanalysis is **targeted**: only the scenes and aspects in question (see SKILL.md, Correction workflow).
+- **Separation:** project footage and generated videos are never stored in `references/`, and never replace the master. The master is replaced only on an explicit user request (`master_ref.sh replace`, which archives the previous master).
+
 
 **Confidence tags** used throughout:
 - **[O] Observed:** directly visible in the extracted frames.
@@ -431,3 +440,14 @@ Things that are absent from the reference: drop shadows on type, bevels or embos
 - *Two consecutive navy scenes.* **Fix:** rotate the field (for example navy, then paper or orange).
 - *The HUD slides around between scenes, or is dropped on some scenes.* **Fix:** a fixed HUD layer, where only the values change.
 - *The reference's words ("CLAUDE.", "motion designer", "+312%") reused in a client project.* **Fix:** these are content. Replace them with the project's content.
+
+---
+
+## 15. Correction log (validated, binding)
+
+This section holds corrections confirmed by comparing a generated video against the master reference during the correction workflow. Each entry **overrides** any earlier rule it contradicts, and must be applied in all future productions. Only reusable style rules belong here, not project-specific preferences. The format is:
+
+`YYYY-MM-DD - symptom - master evidence (timestamps) - rule change - sections edited`
+
+- (no entries yet)
+
