@@ -144,3 +144,25 @@ These are 20×20 px area averages taken through the camera, so they are darker o
 - `references/keyframes/02_3d_kinetic_type.jpg`: 3.3, 3.6, 4.2, 4.95, 5.5, 5.85, 6.05, 6.25, and 6.5 s (3D wave, EVERY / SINGLE / FRAME / hue sweep / on purpose. / slab wipe).
 - `references/keyframes/03_data_particles_ui.jpg`: 6.75, 7.5, 8.05, 8.4, 8.9, 9.3, 9.85, 10.7, and 11.05 s (dashboard, column dissolve, flow field, phyllotaxis, burst, UI card).
 - `references/keyframes/04_shape_portal_end.jpg`: 11.3, 11.45, 11.8, 12.25, 12.8, 13.0, 13.3, 13.6, and 14.35 s (card collapse, metaballs, superformula, portal, dot-led wordmark, end card).
+
+## 7. Current master reference: scene map (`references/master-reference.mp4`)
+
+The master was designated by the user on 2026-10-23. It has sha256 `08719522…80d8d` and runs 1920×1080 at 30 fps for 15.0 s (450 frames, no audio). It was produced from STYLE_GUIDE at 150 BPM (beat = 12 f = 0.4 s, bar = 48 f = 1.6 s). The times below are exact (from the composition source) and were confirmed on a contact sheet of the file.
+
+- **0.00-1.60 s, Boot (navy):** a dot grid. An orange spark falls (0-0.3 s) and becomes a dot. A terminal line types `claude // explained` and is rewritten to `claude / explained - 2026`. An orange line stretches across (0.73-1.0 s), flexes, thickens, and blooms into a full-height band (1.33-1.57 s).
+- **1.53-1.93 s, Line → flash:** white-hot, held for about 4 f, then cooling over about 8 f into orange.
+- **1.60-3.20 s, Title (orange), SCENE 01 IDENTITY / TYPE:** `EXPLAINER ------ 01` overline. "CLAUDE" letter reveal (1.5 f stagger, 6 f snap), the period dot pops in, and the accent reads "your AI collaborator". A 3% push over the bar. **2.87-3.20 s:** the period grows (expo-in) into a soft-edged ink mask.
+- **3.20-4.80 s, Kinetic type, SCENE 02:** an iris opens (8 f). Then one word per beat: READS (paper, chromatic whip, 3.20 s), WRITES (hot fill, outline repeat rows, black, 3.60 s), CODES (blue and cyan, glitch slices plus viewfinder brackets, 4.00 s), a hue sweep at 4.30-4.40 s, and "with you." (serif italic on orange with a drawn underline, 4.40 s).
+- **4.70-5.17 s, Diagonal slab wipe:** three slabs, the last one paper.
+- **4.80-6.40 s, Data (paper), SCENE 03 DATA / ANALYSIS:** a prompt label, +38% (rolling counter, orange %), a donut to 92%, 12 bars with the last one orange, a blue line that draws, and a tooltip "↑ 38%". The data is labelled SAMPLE DATA.
+- **6.10-6.57 s, Column dissolve** to black.
+- **6.40-8.00 s, Code (black), SCENE 04 CODE / AGENTIC:** an editor card snaps in, the off-by-one line is highlighted orange and fixed, the terminal reads `$ npm test`, and an orange ✓ dot shows "24 tests passed".
+- **7.73-8.13 s, Radial burst** from the ✓ dot: streaks plus blue discs.
+- **8.00-9.60 s, Chat (blue), SCENE 05 UI / CONVERSATION:** a card on a parallax stack. The "Extended thinking" toggle turns orange, the user bubble arrives, orange typing dots pulse, and three reply lines stagger in. **9.33-9.60 s:** the card collapses into a dark rounded square.
+- **9.53-9.93 s, Collapse bloom:** an orange disc with a pink rim expands from the square.
+- **9.60-11.20 s, Tools (orange), SCENE 06 TOOLS / CONNECTORS:** one black blob splits into six (SEARCH, FILES, CODE, DOCS, APIS, DATA) inside a cream outline that morphs into a 6-point superformula star (`m` 0→6). The accent reads "connects to your tools.", and the blobs merge back at 10.67-10.93 s.
+- **10.93-11.40 s, Portal:** the dot opens into concentric dark rings, then navy.
+- **11.20-15.00 s, End (navy, no HUD):** the orange dot appears, slides left, and the word "Claude" emerges from it with glitch slices (11.67-12.0 s). The accent "your AI collaborator" follows, then a hairline, the decoding tagline `ASK ANYTHING. BUILD ANYTHING.`, and the credit line. It holds to the end.
+
+This master **does not** contain a 3D mograph scene, a flow-field or phyllotaxis particle scene, the device wrapper, or audio. For those, use §1-§6 above.
+
